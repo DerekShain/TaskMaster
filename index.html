@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="icon"
+      href="https://bcw.blob.core.windows.net/public/img/9977764104160066"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="assets/style/main.css" />
+    <link rel="stylesheet" href="assets/style/style.css" />
+    <title>TaskMaster</title>
+  </head>
+
+  <body>
+    <!-- NOTE this is the header -->
+    <header>
+      <nav
+        class="navbar navbar-dark navbar-expand bg-dark text-light no-select"
+      >
+        <a class="navbar-brand ms-3" href="#">
+          <img
+            src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png"
+            height="45"
+            alt=""
+            loading="lazy"
+          />
+          <span class="ms-2">TaskMaster</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- NOTE this is the main -->
+    <main>
+      <div class="container-fluid">
+        <div class="row p-3">
+          <div id="app">
+            <form
+              class="d-flex align-items-center"
+              onsubmit="app.listsController.addList()"
+            >
+              <div class="col-3">
+                <div class="form">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="listName"
+                    id="listName"
+                    placeholder="List Name:"
+                    minlength="3"
+                    maxlength="15"
+                    required
+                  />
+                  <!-- <label for="floatingInput">List Name:</label> -->
+                </div>
+              </div>
+              <div class="col-3">
+                <input
+                  type="color"
+                  class="form-control form-control-color"
+                  name="color"
+                  id="color"
+                  title="Choose List Color"
+                />
+              </div>
+              <div class="col-3">
+                <div class="button-group">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </form>
+            <div class="row" id="taskLists"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- NOTE this is the footer -->
+    <footer class="bg-dark text-light">
+      <div class="text-center no-select">
+        <p><small>Made with 💖 by Codeworks</small></p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app/main.js" type="module"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
