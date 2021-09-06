@@ -9,20 +9,22 @@ export class List {
   }
   get ListsTemplate() {
     return /*html*/ `
-        <div class="col-sm-12 col-md-4 display-flex align-items-center py-3">
-          <div class="card ">
+        <div class="col-sm-12 col-md-4 display-flex align-items-center py-3 border-primary ">
+          <div class="card bg-dark">
             <div class="card-header text-white" style="background-color:${this.color}">
-              <h2>${this.name}, ${this.Count} </h2>
-                <div class="text-end">
-                  <i class="fas fa-trash-alt" selectable onclick="app.listsController.deleteList('${this.id}')"></i>
-                </div>
+            <h2>${this.name}
+            <i class="fas fa-trash-alt bigTrash text-light" selectable onclick="app.listsController.deleteList('${this.id}')"></i>
+            </h2>
+            <p>Tasks Completed ${this.Count} </p>
             </div>
             <div class="card-body">
               <form  onsubmit="app.tasksController.addTask('${this.id}')">
+              <div class="row">
                 <label for="tasker" class="card-text">${this.Tasks}</label>
+                </div>
                   <div class="form-group">
                     <input type="text" class="form-control-2" name="tasker" id="task" required minLength="3" maxLength="50">
-                    <button class="btn btn-outline-secondary text-dark" type="submit" id="button-addon2">Add</button>
+                    <button class="btn btn-outline-secondary text-light" type="submit" id="button-addon2">Add New Task</button>
                   </div>
               </form>
             </div>
@@ -43,6 +45,6 @@ export class List {
     let checkedTasks = filterTasks.filter((c) => c.checked === "checked");
     checkCount = checkedTasks.length;
     totalCount = filterTasks.length;
-    return checkCount + "/" + totalCount;
+    return checkCount + " out of " + totalCount;
   }
 }

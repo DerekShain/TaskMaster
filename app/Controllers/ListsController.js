@@ -35,6 +35,13 @@ export class ListsController {
       return;
     }
     form.reset();
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'New Task Added',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
   deleteList(listData) {

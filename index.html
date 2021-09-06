@@ -22,7 +22,17 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link
+      href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css"
+      rel="stylesheet"
+    /> -->
+    <link rel="stylesheet" href="assets/@sweetalert2/theme-dark/dark.css">
     <link rel="stylesheet" href="assets/style/main.css" />
     <link rel="stylesheet" href="assets/style/style.css" />
     <title>TaskMaster</title>
@@ -34,28 +44,24 @@
       <nav
         class="navbar navbar-dark navbar-expand bg-dark text-light no-select"
       >
-        <a class="navbar-brand ms-3" href="#">
-          <img
-            src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png"
-            height="45"
-            alt=""
-            loading="lazy"
-          />
+        <a class="navbar-brand ms-3" href="https://github.com/DerekShain">
+          <i class="fas fa-calendar-check"></i>
           <span class="ms-2">TaskMaster</span>
         </a>
       </nav>
     </header>
 
     <!-- NOTE this is the main -->
-    <main>
+    <main class="bg-image text-light">
       <div class="container-fluid">
         <div class="row p-3">
           <div id="app">
+            <h3>Add a task to be completed.</h3>
             <form
               class="d-flex align-items-center"
               onsubmit="app.listsController.addList()"
             >
-              <div class="col-3">
+              <div class="col-md-4 col-sm-12">
                 <div class="form">
                   <input
                     type="text"
@@ -63,25 +69,29 @@
                     name="listName"
                     id="listName"
                     placeholder="List Name:"
-                    minlength="3"
+                    length="3"
                     maxlength="15"
                     required
                   />
-                  <!-- <label for="floatingInput">List Name:</label> -->
                 </div>
               </div>
-              <div class="col-3">
+              <div class="col-md-2 col-sm-6 txtAlign">
+                <h5>Select a color:</h5>
+              </div>
+              <div class="col-md-2 col-sm-6 px-4">
                 <input
                   type="color"
-                  class="form-control form-control-color"
+                  class="form-control form-control-color p-0"
                   name="color"
                   id="color"
                   title="Choose List Color"
                 />
               </div>
-              <div class="col-3">
+              <div class="col-md-4 col-sm-12">
                 <div class="button-group">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">
+                    <b>Submit</b>
+                  </button>
                 </div>
               </div>
             </form>
@@ -94,7 +104,7 @@
     <!-- NOTE this is the footer -->
     <footer class="bg-dark text-light">
       <div class="text-center no-select">
-        <p><small>Made with 💖 by Codeworks</small></p>
+        <p><small>Made by 🐱‍🚀</small></p>
       </div>
     </footer>
 
@@ -104,6 +114,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="app/main.js" type="module"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    
+    <!-- <script src="sweetalert2/dist/sweetalert2.min.js"></script> -->
+    <script src="assets/sweetalert2/dist/sweetalert2.min.js"></script>
   </body>
 </html>

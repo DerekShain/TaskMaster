@@ -10,10 +10,10 @@ export class Task {
   get TasksTemplate() {
     return /*html*/ `
         <div class="form-group">
-        <input type="checkbox" id="${this.taskId}" name="${this.taskId}" onclick="app.tasksController.checkBox('${this.taskId}')" ${this.checked}>
+        <input class="form-check-input" type="checkbox" id="${this.taskId}" name="${this.taskId}" onclick="app.tasksController.checkBox('${this.taskId}')" ${this.checked}>
         <label class="${this.checked}" for="${this.taskId}">${this.task}</label>
+        <i class="fas fa-trash-alt trashPosition" onclick="app.tasksController.deleteTask('${this.taskId}')"></i>
         </div>
-        <i class="fas fa-trash-alt" onclick="app.tasksController.deleteTask('${this.taskId}')"></i>
         `;
   }
 }
