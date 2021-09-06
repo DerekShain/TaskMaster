@@ -6,5 +6,5 @@ class App {
   listsController = new ListsController();
   tasksController = new TasksController();
 }
-loadState()
+loadState();
 window["app"] = new App();

@@ -1,10 +1,9 @@
 import { ProxyState } from "../AppState.js";
 import { listsService } from "../Services/ListsService.js";
-import { tasksService } from "../Services/TasksService.js";
 
 function _drawLists() {
   let template = "";
-  ProxyState.lists.forEach(list => template += list.ListsTemplate);
+  ProxyState.lists.forEach((list) => (template += list.ListsTemplate));
   document.getElementById("taskLists").innerHTML = template;
 }
 
@@ -12,7 +11,6 @@ export class ListsController {
   constructor() {
     ProxyState.on("lists", _drawLists);
     ProxyState.on("tasks", _drawLists);
-    console.log("this is the lists controller");
     _drawLists();
   }
 
@@ -39,34 +37,20 @@ export class ListsController {
     form.reset();
   }
 
-deleteList(listData){
-  
-  Swal.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      listsService.deleteList(listData)
-      Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
-        'success'
-      )
-    }
-  })
-}
-
-
-  showLists() {
-    _drawLists();
-    // document.getElementById('forms').innerHTML = getListFormTemplate()
-  }
-  toggleListForm() {
-    document.getElementById("list-form").classList.toggle("visually-hidden");
+  deleteList(listData) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        listsService.deleteList(listData);
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+      }
+    });
   }
 }

@@ -1,29 +1,31 @@
 import { ProxyState } from "../AppState.js";
 import { Task } from "../Models/Task.js";
-import { saveState } from "../Utils/LocalStorage.js";
+import { loadState, saveState } from "../Utils/LocalStorage.js";
 
 class TasksService {
   constructor() {
-    // ProxyState.on('tasks', saveState)
-
+    ProxyState.on("tasks", saveState);
   }
-  
-  completeTask(taskId) {
-    console.log(taskId);
-    ProxyState.checkbox = [...ProxyState.checkbox, new Task(taskId)];
-    ProxyState.on('checkbox', saveState)
 
-  }
   addTask(taskData) {
-    console.log("this is the tasks service")
-    ProxyState.tasks = [...ProxyState.tasks, new Task(taskData)]
+    console.log("this is the tasks service");
+    ProxyState.tasks = [...ProxyState.tasks, new Task(taskData)];
   }
-  deleteTask(taskData){
-    ProxyState.tasks = ProxyState.tasks.filter(t => 
-     
-      // console.log(t.id)
-      t.id !== taskData
-      );
+  deleteTask(taskId) {
+    ProxyState.tasks = ProxyState.tasks.filter((t) => t.taskId !== taskId);
+  }
+  addCheck(taskId) {
+    console.log(taskId);
+    let foundTask = ProxyState.tasks.find((t) => t.taskId === taskId);
+    console.log(foundTask);
+    if (foundTask.checked == "unchecked") {
+      foundTask.checked = "checked";
+    } else {
+      foundTask.checked = "unchecked";
+    }
+    saveState();
+    loadState();
+    console.log(taskId);
   }
 }
 

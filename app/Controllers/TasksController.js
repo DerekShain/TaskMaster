@@ -1,14 +1,13 @@
+import { ProxyState } from "../AppState.js";
 import { tasksService } from "../Services/TasksService.js";
+import { loadState, saveState } from "../Utils/LocalStorage.js";
 
 export class TasksController {
   constructor() {
     console.log("tasksController");
   }
 
-  checkBox(taskId) {
-    event.preventDefault()
-    tasksService.completeTask(taskId);
-  }
+  
   addTask(listId) {
     event.preventDefault();
     /**
@@ -18,7 +17,6 @@ export class TasksController {
     let form = event.target;
     let taskData = {
       listId: listId,
-      // amount: form.amount.value,
       task: form.task.value,
     };
     tasksService.addTask(taskData);
@@ -42,5 +40,8 @@ export class TasksController {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
       }
     });
+  }
+  checkBox(taskData) {
+    tasksService.addCheck(taskData)
   }
 }
