@@ -19,6 +19,13 @@ class TasksService {
     console.log(foundTask);
     if (foundTask.checked === "unchecked") {
       foundTask.checked = "checked";
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Task Finished!',
+        showConfirmButton: false,
+        timer: 1500
+      })
     } else {
       foundTask.checked = "unchecked";
     }
