@@ -7,7 +7,6 @@ export class TasksController {
     console.log("tasksController");
   }
 
-  
   addTask(listId) {
     event.preventDefault();
     /**
@@ -42,6 +41,6 @@ export class TasksController {
     });
   }
   checkBox(taskData) {
-    tasksService.addCheck(taskData)
+    tasksService.addCheck(taskData);
   }
 }

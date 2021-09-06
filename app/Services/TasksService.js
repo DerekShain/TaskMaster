@@ -15,17 +15,15 @@ class TasksService {
     ProxyState.tasks = ProxyState.tasks.filter((t) => t.taskId !== taskId);
   }
   addCheck(taskId) {
-    console.log(taskId);
     let foundTask = ProxyState.tasks.find((t) => t.taskId === taskId);
     console.log(foundTask);
-    if (foundTask.checked == "unchecked") {
+    if (foundTask.checked === "unchecked") {
       foundTask.checked = "checked";
     } else {
       foundTask.checked = "unchecked";
     }
     saveState();
     loadState();
-    console.log(taskId);
   }
 }
 
