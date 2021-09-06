@@ -36,7 +36,7 @@ export class TasksController {
       if (result.isConfirmed) {
         console.log(taskData);
         tasksService.deleteTask(taskData);
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        Swal.fire("Deleted!", "Task has been deleted!", "success");
       }
     });
   }

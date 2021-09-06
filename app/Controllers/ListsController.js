@@ -56,7 +56,7 @@ export class ListsController {
     }).then((result) => {
       if (result.isConfirmed) {
         listsService.deleteList(listData);
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        Swal.fire("Deleted!", "List Deleted!", "success");
       }
     });
   }
